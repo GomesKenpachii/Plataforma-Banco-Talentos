@@ -7,31 +7,107 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 // TODO: Replace this with your own data model type
 export interface TableItem {
   name: string;
-  id: number;
+  email:string;
+  celular:number;
+  data_de_nascimento:string;
+  cidade:string;
+  estado:string;
+  curso:string;
+  instituicao:string;
+  situacao:string;
+  ano_de_formacao:string
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: TableItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  { name: 'Rafael Gomes Maia Fernandes',
+    email:'rafael.maia@isemear.org.br',
+    celular:31989072005,
+    data_de_nascimento:"25/02/2000",
+    cidade:'viçosa',
+    estado:"MG",
+    curso:"Física",
+    instituicao:"Universidade Federal de Viçosa, UFV",
+    situacao:'Cursando',
+    ano_de_formacao:"2024"},
+
+    { name: 'joão da silva ',
+    email:'joão.silva@isemear.org.br',
+    celular:31989072001,
+    data_de_nascimento:"22/05/2001",
+    cidade:'itabira',
+    estado:"SP",
+    curso:"Musíca",
+    instituicao:"Universidade Federal de Ouro Preto, UFV",
+    situacao:'Cursando',
+    ano_de_formacao:"2026"},
+
+    { name: 'Eduarda Silveira Damasceno e Silva',
+    email:'eduarda@isemear.org.br',
+    celular:31989072069,
+    data_de_nascimento:"24/04/2000",
+    cidade:'joão pessoa',
+    estado:"CE",
+    curso:"História",
+    instituicao:"Universidade Federal do Rio de Janeiro, UFV",
+    situacao:'Concluído',
+    ano_de_formacao:"2022"},
+
+    { name: 'Rafaela Gomes Maia Fernandes',
+    email:'rafaela@isemear.org.br',
+    celular:31989072652,
+    data_de_nascimento:"20/04/2000",
+    cidade:'itabira',
+    estado:"MG",
+    curso:"biologia",
+    instituicao:"Universidade Federal de Minas Gerais, UFMG",
+    situacao:'concluido',
+    ano_de_formacao:"2020"},
+
+    { name: 'ana carolina britto',
+    email:'brittocarol@isemear.org.br',
+    celular:31989065125,
+    data_de_nascimento:"07/004/2000",
+    cidade:'salvador',
+    estado:"BA",
+    curso:"medicina",
+    instituicao:"Universidade Federal da Bahia",
+    situacao:'Cursando',
+    ano_de_formacao:"2023"},
+
+    { name: 'Maia Fernandes',
+    email:'maia@isemear.org.br',
+    celular:31845672005,
+    data_de_nascimento:"02/02/1999",
+    cidade:'ipoema',
+    estado:"MG",
+    curso:"agronomia",
+    instituicao:"Universidade Federal de pernambuco",
+    situacao:'Cursando',
+    ano_de_formacao:"2026"},
+
+    { name: ' Gomes Maia',
+    email:'gomes.maia@isemear.org.br',
+    celular:31993111700,
+    data_de_nascimento:"25/05/2001",
+    cidade:'Sao joao del rei',
+    estado:"MG",
+    curso:"serviço social",
+    instituicao:"Universidade Federal de São joão Del Rei, UFSJ",
+    situacao:'Concluido',
+    ano_de_formacao:"2022"},
+
+    { name: 'Fernanda Silveira',
+    email:'fernanda01@isemear.org.br',
+    celular:31993114562,
+    data_de_nascimento:"18/10/1998",
+    cidade:'florianópolis',
+    estado:"SC",
+    curso:"odontologia",
+    instituicao:"Universidade Federal de Santa catarina, UFSC",
+    situacao:'Cursando',
+    ano_de_formacao:"2025"},
+
 ];
 
 /**
@@ -98,7 +174,14 @@ export class TableDataSource extends DataSource<TableItem> {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
         case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'email': return compare(a.email, b.email, isAsc);
+        case 'celular': return compare(a.celular, b.celular, isAsc);
+        case 'data_de_nascimento': return compare(a.data_de_nascimento, b.data_de_nascimento, isAsc);
+        case 'estado': return compare(a.estado, b.estado, isAsc);
+        case 'curso': return compare(a.curso, b.curso, isAsc);
+        case 'instituicao': return compare(a.instituicao, b.instituicao, isAsc);
+        case 'situacao': return compare(a.situacao, b.situacao, isAsc);
+        case 'ano_de_formacao': return compare(a.ano_de_formacao, b.ano_de_formacao, isAsc);
         default: return 0;
       }
     });
