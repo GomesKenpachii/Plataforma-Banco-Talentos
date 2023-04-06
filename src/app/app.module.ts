@@ -11,7 +11,7 @@ import { FormLoginComponent } from './components/form-login/form-login.component
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { TableComponent } from './components/table/table.component';
+import {TableComponent} from './components/table/table.component'
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -31,6 +31,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     FooterComponent,
     TableComponent,
     FormsJovemComponent,
+
+   
   
 
   ],
@@ -63,6 +67,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatIconModule,
     MatSelectModule,
     MatDatepickerModule,
+
    
     
    
