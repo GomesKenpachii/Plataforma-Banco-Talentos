@@ -37,8 +37,8 @@ const dados: dados[] = [
     email:'joão.silva@isemear.org.br',
     celular:31989072001,
     data_de_nascimento:"22/05/2001",
-    cidade:'itabira',
-    estado:"SP",
+    cidade:'viçosa',
+    estado:"MG",
     curso:"Musíca",
     instituicao:"Universidade Federal de Ouro Preto, UFV",
     situacao:'Cursando',
@@ -138,10 +138,10 @@ export class TableComponent {
 
   ngAfterViewInit() {
     this.filterdata = dados
-    this.cidades = dados.map((item:any)=> item['cidade'])
-    this.estados = dados.map((item:any)=> item['estado'])
-    this.instituicoes = dados.map((item:any)=> item['instituicao'])
-    this.cursos = dados.map((item:any)=> item['curso'])
+    this.cidades = [...new Set(dados.map((item:any)=> item['cidade']))]
+    this.estados = [...new Set (dados.map((item:any)=> item['estado']))]
+    this.instituicoes =[...new Set( dados.map((item:any)=> item['instituicao']))]
+    this.cursos = [...new Set(dados.map((item:any)=> item['curso']))]
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
