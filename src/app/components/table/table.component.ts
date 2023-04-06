@@ -185,4 +185,9 @@ export class TableComponent {
   })
       this.dataSource = new MatTableDataSource(filterestado)
   }
+
+  limpar($event:any){
+    this.dataSource = new MatTableDataSource(this.filterdata)
+    console.log("Limpou")
+  }
 }
